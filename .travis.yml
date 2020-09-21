@@ -1,0 +1,20 @@
+language: objective-c
+osx_image: xcode11
+cache:
+  - bundler
+  - cocoapods
+xcode_workspace: FinalProject.xcworkspace
+xcode_scheme: "FinalProject"
+xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
+before_install:
+  - bundle install
+  - gem install linterbot
+  - bundle exec pod install --repo-update
+install:
+  - set -o pipefail
+  - sudo systemsetup -settimezone Asia/Ho_Chi_Minh
+  - bundle install --path=vendor/bundle --jobs 4 --retry 3
+before_script:
+  - chmod a+x ./scripts/linter
+script:
+  - ./scripts/linter
