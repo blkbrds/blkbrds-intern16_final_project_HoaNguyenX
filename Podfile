@@ -11,4 +11,8 @@ pod 'SwifterSwift'
 pod 'ObjectMapper'
 pod 'MVVM-Swift'
 pod 'SwiftUtils', '4.2', :inhibit_warnings => true
+pod 'FBSDKLoginKit'
+pod 'Firebase/Auth'
+pod 'Firebase/Storage'
+pod 'Firebase/Database'
 end
