@@ -19,10 +19,10 @@ final class Session {
     
     var accessToken: String {
         get {
-            return ud.string(forKey: UserDefaultKey.accessToken).content
+            return ud.string(forKey: FacebookKey.accessToken).content
         }
         set {
-            ud.set(newValue, forKey: UserDefaultKey.accessToken)
+            ud.set(newValue, forKey: FacebookKey.accessToken)
         }
     }
 }
