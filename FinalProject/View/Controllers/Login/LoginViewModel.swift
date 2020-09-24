@@ -15,11 +15,9 @@ final class LoginViewModel: ViewModel {
     
     // MARK: - Properties
     private let facebookLogin: LoginManager = LoginManager()
-    var loginFacebookResult: LoginFacebookResult?
-    var connectFacebookToFirebaseResult: ConnectFacebookToFirebaseResult?
     
-    // MARK: - Functions
-    func login() {
+     // MARK: - Functions
+        func login(completion: @escaping FBCompletion) {
         let vc = LoginViewController()
         facebookLogin.logIn(permissions: [FacebookKey.email], from: vc) { (result, error) in
             if let result = result?.isCancelled, result {
@@ -27,24 +25,23 @@ final class LoginViewModel: ViewModel {
                 if error == nil {
                     if let token = AccessToken.current, !token.isExpired {
                         Session.shared.accessToken = token.tokenString
-                        self.loginFacebookResult = .success
-                        self.connectFacebookToFirebase(accessToken: Session.shared.accessToken)
+                        completion(.success)
                     }
                 } else {
-                    self.loginFacebookResult = .failure
+                    completion(.failure)
                 }
             }
         }
     }
     
-    func connectFacebookToFirebase(accessToken: String) {
+    func connectFacebookToFirebase(accessToken: String, completion: @escaping ConnectFacebookToFirebaseCompletion) {
         let credential = FacebookAuthProvider.credential(withAccessToken: accessToken)
          Auth.auth().signIn(with: credential) { (_, error) in
              if error != nil {
-                self.connectFacebookToFirebaseResult = .failure
+                completion(.failure)
                 return
              } else {
-                self.connectFacebookToFirebaseResult = .success
+                completion(.success)
             }
          }
     }
