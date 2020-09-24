@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import MVVM
+
+final class ShopViewModel: ViewModel {
+    
+    private var products: [Product] = []
+    
+    func numberOfItems(inSection section: Int) -> Int {
+        // hash code
+        return 10
+    }
+    
+    func getProductCell(atIndexPath indexPath: IndexPath) -> ProductCellViewModel? {
+        guard 0 <= indexPath.row && indexPath.row < products.count else { return nil }
+        return ProductCellViewModel()
+    }
+    
+    func getListItems() {
+        // work after
+    }
+}
