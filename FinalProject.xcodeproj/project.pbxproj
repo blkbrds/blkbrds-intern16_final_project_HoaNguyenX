@@ -366,7 +366,6 @@
 				F398D73325189BE4009E7424 /* ShopViewController.swift */,
 				F398D73425189BE4009E7424 /* ShopViewController.xib */,
 				F398D73725189C8E009E7424 /* ShopViewModel.swift */,
-				F398D719251899A9009E7424 /* Chat */,
 				F398D71825189959009E7424 /* ProductsCell */,
 			);
 			path = "1. Shop";
@@ -386,6 +385,7 @@
 		F398D71625189922009E7424 /* 3. Conversations */ = {
 			isa = PBXGroup;
 			children = (
+				F398D719251899A9009E7424 /* Chat */,
 				F398D75F2518A44F009E7424 /* ConversationsViewController.swift */,
 				F398D7632518A471009E7424 /* ConversationsViewModel.swift */,
 				F398AADB2520A00B006E223F /* ConversationsViewController.xib */,
