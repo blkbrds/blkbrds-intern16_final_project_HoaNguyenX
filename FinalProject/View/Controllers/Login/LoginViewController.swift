@@ -40,15 +40,6 @@ final class LoginViewController: ViewController {
     }
     
     private func login() {
-<<<<<<< Updated upstream
-        viewModel.login()
-        print(viewModel.loginFacebookResult)
-        if viewModel.loginFacebookResult == .success {
-            let alert: UIAlertController = UIAlertController(title: AlertKey.notification, message: AlertKey.failure, preferredStyle: .alert)
-            let aletAction: UIAlertAction = UIAlertAction(title: AlertKey.okAction, style: .destructive, handler: nil)
-            alert.addAction(aletAction)
-            self.present(alert, animated: true, completion: nil)
-=======
         viewModel.login { [weak self] result in
             guard let this = self else { return }
             switch result {
@@ -60,9 +51,10 @@ final class LoginViewController: ViewController {
             case .success:
                 AppDelegate.shared.changeRoot(rootType: .tabbar)
             }
->>>>>>> Stashed changes
         }
     }
+}
+
     
     // MARK: - @IBAction
     @IBAction private func loginFacebookTouchUpInside() {

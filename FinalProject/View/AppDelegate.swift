@@ -25,19 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return shared
     }()
     var window: UIWindow?
-    let login: ViewController  = LoginViewController()
+    let login: ViewController = LoginViewController()
     let tabbar: TabbarViewController = TabbarViewController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = LoginViewController()
         window?.makeKeyAndVisible()
         FirebaseApp.configure()
         ApplicationDelegate.shared.application(application,
-                                               didFinishLaunchingWithOptions: launchOptions
-        )
+                                               didFinishLaunchingWithOptions: launchOptions)
         if UserDefaults.standard.value(forKey: "user") == nil {
-            window?.rootViewController = login
+            window?.rootViewController = tabbar
         } else {
             window?.rootViewController = tabbar
         }
@@ -50,8 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let handled = ApplicationDelegate.shared.application(app,
                                                              open: url,
                                                              sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                                                             annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-        )
+                                                             annotation: options[UIApplication.OpenURLOptionsKey.annotation])
         return handled
     }
     

@@ -32,8 +32,8 @@
 		6ED44CEA250A8476006DA53B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED44CE8250A8476006DA53B /* LaunchScreen.storyboard */; };
 		F394C983A276A0328ED4448A /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3EFD8E62132522E716F26A /* Pods_FinalProject.framework */; };
 		F398D711251898C3009E7424 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D710251898C3009E7424 /* ViewController.swift */; };
-		F398D71F25189A5B009E7424 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D71D25189A5B009E7424 /* CollectionViewCell.swift */; };
-		F398D72025189A5B009E7424 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D71E25189A5B009E7424 /* CollectionViewCell.xib */; };
+		F398D71F25189A5B009E7424 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D71D25189A5B009E7424 /* ProductCell.swift */; };
+		F398D72025189A5B009E7424 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D71E25189A5B009E7424 /* ProductCell.xib */; };
 		F398D72225189A78009E7424 /* ProductsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D72125189A78009E7424 /* ProductsCellViewModel.swift */; };
 		F398D72525189AD5009E7424 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D72325189AD5009E7424 /* ChatViewController.swift */; };
 		F398D72625189AD5009E7424 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D72425189AD5009E7424 /* ChatViewController.xib */; };
@@ -76,6 +76,8 @@
 		F398D7802519FB19009E7424 /* FacebookKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D77F2519FB19009E7424 /* FacebookKey.swift */; };
 		F398D783251AFDC7009E7424 /* AlertKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D782251AFDC7009E7424 /* AlertKey.swift */; };
 		F398D785251B02F5009E7424 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D784251B02F5009E7424 /* LoginViewModel.swift */; };
+		F398D787251B36A9009E7424 /* TabbarItemsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D786251B36A9009E7424 /* TabbarItemsKey.swift */; };
+		F398D78B251C4086009E7424 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D78A251C4086009E7424 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,8 +110,8 @@
 		A6E513A51564968E3C0375F2 /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BD3EFD8E62132522E716F26A /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F398D710251898C3009E7424 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F398D71D25189A5B009E7424 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		F398D71E25189A5B009E7424 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		F398D71D25189A5B009E7424 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		F398D71E25189A5B009E7424 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		F398D72125189A78009E7424 /* ProductsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCellViewModel.swift; sourceTree = "<group>"; };
 		F398D72325189AD5009E7424 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		F398D72425189AD5009E7424 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -153,6 +155,8 @@
 		F398D77F2519FB19009E7424 /* FacebookKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookKey.swift; sourceTree = "<group>"; };
 		F398D782251AFDC7009E7424 /* AlertKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertKey.swift; sourceTree = "<group>"; };
 		F398D784251B02F5009E7424 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F398D786251B36A9009E7424 /* TabbarItemsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItemsKey.swift; sourceTree = "<group>"; };
+		F398D78A251C4086009E7424 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,7 @@
 		6ED44CB7250A8304006DA53B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F398D788251C4057009E7424 /* Schema */,
 				6ED44CB8250A8320006DA53B /* API */,
 				F398D77C2519F945009E7424 /* Session.swift */,
 			);
@@ -377,8 +382,8 @@
 		F398D71825189959009E7424 /* ProductsCell */ = {
 			isa = PBXGroup;
 			children = (
-				F398D71D25189A5B009E7424 /* CollectionViewCell.swift */,
-				F398D71E25189A5B009E7424 /* CollectionViewCell.xib */,
+				F398D71D25189A5B009E7424 /* ProductCell.swift */,
+				F398D71E25189A5B009E7424 /* ProductCell.xib */,
 				F398D72125189A78009E7424 /* ProductsCellViewModel.swift */,
 			);
 			path = ProductsCell;
@@ -464,6 +469,7 @@
 			children = (
 				F398D77F2519FB19009E7424 /* FacebookKey.swift */,
 				F398D782251AFDC7009E7424 /* AlertKey.swift */,
+				F398D786251B36A9009E7424 /* TabbarItemsKey.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -477,6 +483,14 @@
 				F398D71425189913009E7424 /* 1. Shop */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		F398D788251C4057009E7424 /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				F398D78A251C4086009E7424 /* Product.swift */,
+			);
+			path = Schema;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -551,7 +565,7 @@
 				F398D74C2518A011009E7424 /* FriendsProfileViewController.xib in Resources */,
 				F398D73625189BE4009E7424 /* ShopViewController.xib in Resources */,
 				F398D72625189AD5009E7424 /* ChatViewController.xib in Resources */,
-				F398D72025189A5B009E7424 /* CollectionViewCell.xib in Resources */,
+				F398D72025189A5B009E7424 /* ProductCell.xib in Resources */,
 				F398D7792519E3F4009E7424 /* GoogleService-Info.plist in Resources */,
 				F398D75A2518A2AD009E7424 /* FacebookPhotosCollectionViewCell.xib in Resources */,
 				F398D7692518A6AA009E7424 /* LoginViewController.xib in Resources */,
@@ -628,7 +642,7 @@
 			files = (
 				6ED44CC0250A8320006DA53B /* NSURL.swift in Sources */,
 				6ED44CD7250A8357006DA53B /* UINavigationItemExt.swift in Sources */,
-				F398D71F25189A5B009E7424 /* CollectionViewCell.swift in Sources */,
+				F398D71F25189A5B009E7424 /* ProductCell.swift in Sources */,
 				6ED44CDD250A8357006DA53B /* BundleExt.swift in Sources */,
 				F398D7562518A23A009E7424 /* CustomDetailsViewModel.swift in Sources */,
 				F398D73E25189EEF009E7424 /* FriendsViewController.swift in Sources */,
@@ -664,6 +678,7 @@
 				6ED44CD9250A8357006DA53B /* StringExt.swift in Sources */,
 				F398D72E25189B57009E7424 /* SenderCellViewModel.swift in Sources */,
 				F398D7612518A44F009E7424 /* ConversationsViewController.swift in Sources */,
+				F398D787251B36A9009E7424 /* TabbarItemsKey.swift in Sources */,
 				F398D75E2518A3DE009E7424 /* FriendsProfileViewModel.swift in Sources */,
 				F398D7592518A2AD009E7424 /* FacebookPhotosCollectionViewCell.swift in Sources */,
 				F398D74425189F6F009E7424 /* FriendsCollectionViewCell.swift in Sources */,
@@ -672,6 +687,7 @@
 				F398D7642518A471009E7424 /* ConversationsViewModel.swift in Sources */,
 				6ED44CDC250A8357006DA53B /* UIViewExt.swift in Sources */,
 				F398D75C2518A2CB009E7424 /* FacebookPhotosCellViewModel.swift in Sources */,
+				F398D78B251C4086009E7424 /* Product.swift in Sources */,
 				F398D73125189B70009E7424 /* SenderViewController.swift in Sources */,
 				F398D72525189AD5009E7424 /* ChatViewController.swift in Sources */,
 				6ED44CD5250A8357006DA53B /* UIGestureRecognizerExt.swift in Sources */,
@@ -816,8 +832,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FinalProject/FinalProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4FGMSL24MR;
 				INFOPLIST_FILE = FinalProject/Support/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -836,8 +853,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FinalProject/FinalProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4FGMSL24MR;
 				INFOPLIST_FILE = FinalProject/Support/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
