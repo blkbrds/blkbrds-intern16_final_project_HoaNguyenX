@@ -19,9 +19,13 @@ final class LoginViewModel: ViewModel {
     var connectFacebookToFirebaseResult: ConnectFacebookToFirebaseResult?
     
     // MARK: - Functions
+<<<<<<< Updated upstream
     func login() {
+=======
+    func login(completion: @escaping FBCompletion) {
+>>>>>>> Stashed changes
         let vc = LoginViewController()
-        facebookLogin.logIn(permissions: [FacebookKey.email], from: vc) { (result, error) in
+        facebookLogin.logIn(permissions: [FacebookKey.email, FacebookKey.friends, FacebookKey.photos], from: vc) { (result, error) in
             if let result = result?.isCancelled, result {
             } else {
                 if error == nil {
@@ -36,6 +40,7 @@ final class LoginViewModel: ViewModel {
             }
         }
     }
+<<<<<<< Updated upstream
     
     func connectFacebookToFirebase(accessToken: String) {
         let credential = FacebookAuthProvider.credential(withAccessToken: accessToken)
@@ -48,6 +53,8 @@ final class LoginViewModel: ViewModel {
             }
          }
     }
+=======
+>>>>>>> Stashed changes
 }
 
 // MARK: - extension
