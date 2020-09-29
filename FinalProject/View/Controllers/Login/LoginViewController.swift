@@ -49,20 +49,12 @@ final class LoginViewController: ViewController {
                 alert.addAction(aletAction)
                 this.present(alert, animated: true, completion: nil)
             case .success:
-                this.viewModel.connectFacebookToFirebase(accessToken: Session.shared.accessToken, completion: { response in
-                    switch response {
-                    case .failure:
-                        let alert: UIAlertController = UIAlertController(title: AlertKey.notification, message: AlertKey.connectFailure, preferredStyle: .alert)
-                        let aletAction: UIAlertAction = UIAlertAction(title: AlertKey.okAction, style: .destructive, handler: nil)
-                        alert.addAction(aletAction)
-                        this.present(alert, animated: true, completion: nil)
-                    case .success:
-                        AppDelegate.shared.changeRoot(rootType: .tabbar)
-                    }
-                })
+                AppDelegate.shared.changeRoot(rootType: .tabbar)
             }
         }
     }
+}
+
     
     // MARK: - @IBAction
     @IBAction private func loginFacebookTouchUpInside() {
