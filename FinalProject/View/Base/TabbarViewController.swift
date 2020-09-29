@@ -21,11 +21,22 @@ class TabbarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTabbar()
+<<<<<<< Updated upstream
         advanceCustomTabbar()
+=======
+        customTabbar()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tabBar.layer.cornerRadius = 20
+        tabBar.layer.masksToBounds = true
+>>>>>>> Stashed changes
     }
         
     // MARK: - Private functions
     private func configTabbar() {
+<<<<<<< Updated upstream
         let tabbarItems: [UIViewController] = [homeNavi, mapNavi, favoritesNavi, profileNavi]
         homeNavi.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "icons8-shop-50"), selectedImage: UIImage(named: "icons8-shopSelected-50")?.withRenderingMode(.alwaysOriginal))
         mapNavi.tabBarItem = UITabBarItem(title: "Friends", image: UIImage(named: "icons8-friend-50"), selectedImage: UIImage(named: "icons8-friendSelected-50")?.withRenderingMode(.alwaysOriginal))
@@ -44,6 +55,20 @@ class TabbarViewController: UITabBarController {
             tabBar.subviews[index].layer.borderWidth = 1
             tabBar.subviews[index].layer.borderColor = UIColor.red.cgColor
         }
+=======
+        let tabbarItems: [UIViewController] = [shopNavi, friendsNavi, conversationsNavi, profileNavi]
+        shopNavi.tabBarItem = UITabBarItem(title: TabbarItemsKey.Name.shop, image: UIImage(named: TabbarItemsKey.Image.shop), tag: 1)
+        friendsNavi.tabBarItem = UITabBarItem(title: TabbarItemsKey.Name.friends, image: UIImage(named: TabbarItemsKey.Image.friends), tag: 2)
+        conversationsNavi.tabBarItem = UITabBarItem(title: TabbarItemsKey.Name.conversations, image: UIImage(named: TabbarItemsKey.Image.conversations), tag: 3)
+        profileNavi.tabBarItem = UITabBarItem(title: TabbarItemsKey.Name.profile, image: UIImage(named: TabbarItemsKey.Image.profile), tag: 4)
+        viewControllers = tabbarItems
+    }
+    
+    private func customTabbar() {
+        tabBar.barTintColor = UIColor.white
+        tabBar.tintColor = UIColor(hexString: "E74C3C")
+        tabBar.unselectedItemTintColor = UIColor(hexString: "CCCCCC")
+>>>>>>> Stashed changes
     }
 }
 
