@@ -21,7 +21,6 @@ final class ProductCell: UICollectionViewCell {
         }
     }
     
-    // MARK: - Init
     override func awakeFromNib() {
         super.awakeFromNib()
         configCell()

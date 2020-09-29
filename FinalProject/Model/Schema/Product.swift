@@ -7,8 +7,18 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct Product {
-    var image: String
-    var description: String
+final class Product: Mappable {
+    var image: String = ""
+    var description: String = ""
+    
+    init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        image <- map["source"]
+        description <- map["name"]
+    }
 }
+

@@ -10,25 +10,28 @@ import UIKit
 
 final class ShopViewController: ViewController {
     
-// MARK: - @IBOutlet
+    // MARK: - @IBOutlet
     @IBOutlet private weak var segment: UISegmentedControl!
-    @IBOutlet private weak var productCollectionView: UICollectionView!
+    @IBOutlet private weak var clothesCollectionView: UICollectionView!
+    @IBOutlet private weak var shoesCollectionView: UICollectionView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
-// MARK: - @Properties
-    private var viewModel: ShopViewModel = ShopViewModel()
-
-// MARK: - Life cycle
+    // MARK: - Properties
+    private var viewModelClothes: ShopViewModel = ShopViewModel()
+    private var viewModelShoes: ShopViewModel = ShopViewModel()
+    private var collectionRefreshControl: UIRefreshControl = UIRefreshControl()
+    private var isReloadShoes: Bool = true
+    
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configUISegment()
-        configProductCollectionView()
+        configProductsCollectionView()
+        loadApiClothes()
+        refresh()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-    }
-// MARK: - Private Functions
+    // MARK: - Private Functions
     private func configUISegment() {
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         segment.setTitleTextAttributes(titleTextAttributes, for: .selected)
@@ -36,24 +39,66 @@ final class ShopViewController: ViewController {
         segment.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
     }
     
-    private func configProductCollectionView() {
+    private func configProductsCollectionView() {
         let nib = UINib(nibName: "ProductCell", bundle: .main)
-        productCollectionView.register(nib, forCellWithReuseIdentifier: "ProductCell")
-        productCollectionView.delegate = self
-        productCollectionView.dataSource = self
-        productCollectionView.backgroundColor = .none
-        productCollectionView.showsVerticalScrollIndicator = false
+        clothesCollectionView.register(nib, forCellWithReuseIdentifier: "ClothesCell")
+        clothesCollectionView.delegate = self
+        clothesCollectionView.dataSource = self
+        clothesCollectionView.backgroundColor = .none
+        clothesCollectionView.showsVerticalScrollIndicator = false
+        
+        shoesCollectionView.register(nib, forCellWithReuseIdentifier: "ShoesCell")
+        shoesCollectionView.delegate = self
+        shoesCollectionView.dataSource = self
+        shoesCollectionView.backgroundColor = .none
+        shoesCollectionView.showsVerticalScrollIndicator = false
+    }
+
+    private func loadApiClothes() {
+        viewModelClothes.getClothes { (done) in
+            if done {
+                DispatchQueue.main.async {
+                    self.clothesCollectionView.reloadData()
+                }
+            }
+        }
     }
     
-// MARK: - @ IBActions
+    private func loadApiShoes() {
+        viewModelShoes.getShoes { (done) in
+            if done {
+                DispatchQueue.main.async {
+                    self.shoesCollectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    private func refresh() {
+      collectionRefreshControl.tintColor = .black
+      let tableViewAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+      collectionRefreshControl.attributedTitle = NSAttributedString(string: "Refesh", attributes: tableViewAttributes)
+      collectionRefreshControl.addTarget(self, action: #selector(refreshControl), for: .valueChanged)
+      clothesCollectionView.addSubview(collectionRefreshControl)
+    }
+    
+    // MARK: - Objc Funcions
+    @objc private func refreshControl() {
+        loadApiClothes()
+        collectionRefreshControl.endRefreshing()
+    }
+    
+    // MARK: - @IBActions
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            // work after handle API
-            break
+            scrollView.setContentOffset(CGPoint(x: clothesCollectionView.x, y: clothesCollectionView.y), animated: true)
         case 1:
-            // work after handle API
-            break
+            scrollView.setContentOffset(CGPoint(x: shoesCollectionView.x, y: shoesCollectionView.y), animated: true)
+            if isReloadShoes {
+                loadApiShoes()
+                isReloadShoes = false
+            }
         default:
             break
         }
@@ -63,29 +108,51 @@ final class ShopViewController: ViewController {
 // MARK: - extension
 extension ShopViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfItems(inSection: 0)
+        if collectionView == self.clothesCollectionView {
+            return viewModelClothes.numberOfItems(inSection: 0)
+        }
+        return viewModelShoes.numberOfItems(inSection: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell else {
+        switch collectionView.tag {
+        case 0:
+            guard let clothesCell = clothesCollectionView.dequeueReusableCell(withReuseIdentifier: "ClothesCell", for: indexPath) as? ProductCell else {
+                return UICollectionViewCell()
+            }
+            clothesCell.viewModel = viewModelClothes.getProductCell(atIndexPath: indexPath)
+            return clothesCell
+        case 1:
+            guard let shoesCell = shoesCollectionView.dequeueReusableCell(withReuseIdentifier: "ShoesCell", for: indexPath) as? ProductCell else {
+                return UICollectionViewCell()
+            }
+            shoesCell.viewModel = viewModelShoes.getProductCell(atIndexPath: indexPath)
+            return shoesCell
+        default:
             return UICollectionViewCell()
         }
-        cell.viewModel = viewModel.getProductCell(atIndexPath: indexPath)
-        return cell
     }
 }
 
 extension ShopViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // work after
+        switch collectionView.tag {
+        case 0:
+            break
+        case 1:
+            break
+        default:
+            break
+        }
     }
 }
 
 extension ShopViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let midSpace: CGFloat = 10
+        let heightDescription: CGFloat = 30
         let width: CGFloat = (collectionView.width / 2) - (midSpace / 2)
-        let height: CGFloat = width + 30
+        let height: CGFloat = width + heightDescription
         return CGSize(width: width, height: height)
     }
 }

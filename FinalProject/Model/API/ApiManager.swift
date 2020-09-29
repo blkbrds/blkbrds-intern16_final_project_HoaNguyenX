@@ -17,14 +17,8 @@ typealias APICompletion = (APIResult) -> Void
 typealias DataCompletion<Value> = (Result<Value>) -> Void
 typealias ProcessCompletion = () -> Void
 typealias FBCompletion = (FBResult) -> Void
-typealias ConnectFacebookToFirebaseCompletion = (ConnectResult) -> Void
 
 enum FBResult {
-  case success
-  case failure
-}
-
-enum ConnectResult {
   case success
   case failure
 }

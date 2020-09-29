@@ -9,13 +9,18 @@
 import Foundation
 import MVVM
 
+typealias CompletionResultProducts = (Bool) -> Void
 final class ShopViewModel: ViewModel {
     
-    private var products: [Product] = []
+    // MARK: - Properties
+     var products: [Product] = []
     
+    // MARK: - Funcitions
     func numberOfItems(inSection section: Int) -> Int {
-        // hash code
-        return 10
+        if products.isEmpty {
+            return 10
+        }
+        return products.count
     }
     
     func getProductCell(atIndexPath indexPath: IndexPath) -> ProductCellViewModel? {
@@ -23,7 +28,29 @@ final class ShopViewModel: ViewModel {
         return ProductCellViewModel(product: products[indexPath.row])
     }
     
-    func getListItems() {
-        // work after
-    }
+    func getClothes(completion: @escaping CompletionResultProducts) {
+        Api.Products.getProducts(idAlbum: FacebookKey.idAlbumClothes) { (result) in
+            switch result {
+            case .success(let res):
+                guard let res = res as? [Product] else { return }
+                self.products = res
+                completion(true)
+            case .failure(_):
+                completion(false)
+            }
+        }
+     }
+    
+    func getShoes(completion: @escaping CompletionResultProducts) {
+        Api.Products.getProducts(idAlbum: FacebookKey.idAlbumShoes) { (result) in
+            switch result {
+            case .success(let res):
+                guard let res = res as? [Product] else { return }
+                self.products = res
+                completion(true)
+            case .failure(_):
+                completion(false)
+            }
+        }
+     }
 }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -9,8 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopViewController" customModule="FinalProject" customModuleProvider="target">
             <connections>
-                <outlet property="productCollectionView" destination="aYg-Fs-LHw" id="lfd-dw-TJe"/>
-                <outlet property="segment" destination="kAh-x2-1gJ" id="D3M-cR-adW"/>
+                <outlet property="clothesCollectionView" destination="Ni1-Xg-X3k" id="H6m-zS-zu0"/>
+                <outlet property="scrollView" destination="w1K-zj-BgS" id="Obg-yb-yaN"/>
+                <outlet property="segment" destination="sch-jT-M5N" id="m4f-cR-6JX"/>
+                <outlet property="shoesCollectionView" destination="gpf-ic-dpJ" id="FW9-pg-fIB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,11 +22,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-x2-1gJ">
-                    <rect key="frame" x="10" y="44" width="394" height="41"/>
-                    <color key="backgroundColor" red="0.93321973089999999" green="0.93331867459999995" blue="0.93730396029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sch-jT-M5N">
+                    <rect key="frame" x="20" y="54" width="374" height="41"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="GgP-oI-FLz"/>
+                        <constraint firstAttribute="height" constant="40" id="i8F-Oe-o04"/>
                     </constraints>
                     <segments>
                         <segment title="Clothes"/>
@@ -31,32 +33,72 @@
                     </segments>
                     <color key="selectedSegmentTintColor" red="0.91372549020000005" green="0.29411764709999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
-                        <action selector="segmentValueChanged:" destination="-1" eventType="valueChanged" id="jzE-te-EzA"/>
+                        <action selector="segmentValueChanged:" destination="-1" eventType="valueChanged" id="NZ1-7Z-LLg"/>
                     </connections>
                 </segmentedControl>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-Fs-LHw">
-                    <rect key="frame" x="10" y="94" width="394" height="768"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eT8-vG-tK9">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1K-zj-BgS">
+                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxG-Cc-1Ll">
+                            <rect key="frame" x="10" y="0.0" width="828" height="758"/>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-Xg-X3k" userLabel="Clothes Collection View">
+                                    <rect key="frame" x="0.0" y="0.0" width="394" height="758"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gPz-m9-E5M">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gpf-ic-dpJ" userLabel="Shoes Collection View">
+                                    <rect key="frame" x="424" y="0.0" width="394" height="758"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3vH-NN-LEl">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Ni1-Xg-X3k" secondAttribute="bottom" id="6sk-u2-aHV"/>
+                                <constraint firstAttribute="trailing" secondItem="gpf-ic-dpJ" secondAttribute="trailing" constant="10" id="EVk-da-9j6"/>
+                                <constraint firstAttribute="bottom" secondItem="gpf-ic-dpJ" secondAttribute="bottom" id="Ivv-mc-n76"/>
+                                <constraint firstItem="gpf-ic-dpJ" firstAttribute="top" secondItem="hxG-Cc-1Ll" secondAttribute="top" id="Mio-Bq-AxV"/>
+                                <constraint firstItem="gpf-ic-dpJ" firstAttribute="width" secondItem="Ni1-Xg-X3k" secondAttribute="width" id="QQf-3D-ZF7"/>
+                                <constraint firstItem="Ni1-Xg-X3k" firstAttribute="leading" secondItem="hxG-Cc-1Ll" secondAttribute="leading" id="uWf-Uh-QdC"/>
+                                <constraint firstItem="Ni1-Xg-X3k" firstAttribute="top" secondItem="hxG-Cc-1Ll" secondAttribute="top" id="zap-zn-vCx"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="hxG-Cc-1Ll" firstAttribute="width" secondItem="w1K-zj-BgS" secondAttribute="width" multiplier="2" id="3tQ-mW-ao2"/>
+                        <constraint firstAttribute="bottom" secondItem="hxG-Cc-1Ll" secondAttribute="bottom" id="C9i-yL-wfd"/>
+                        <constraint firstItem="Ni1-Xg-X3k" firstAttribute="width" secondItem="w1K-zj-BgS" secondAttribute="width" constant="-20" id="Cez-Vk-NXl"/>
+                        <constraint firstItem="hxG-Cc-1Ll" firstAttribute="leading" secondItem="w1K-zj-BgS" secondAttribute="leading" constant="10" id="WIC-bG-fHx"/>
+                        <constraint firstItem="hxG-Cc-1Ll" firstAttribute="top" secondItem="w1K-zj-BgS" secondAttribute="top" id="Wiv-oj-1yW"/>
+                        <constraint firstItem="hxG-Cc-1Ll" firstAttribute="height" secondItem="w1K-zj-BgS" secondAttribute="height" id="hmz-2c-bsg"/>
+                        <constraint firstAttribute="trailing" secondItem="hxG-Cc-1Ll" secondAttribute="trailing" id="oOD-cn-6kP"/>
+                    </constraints>
+                </scrollView>
             </subviews>
-            <color key="backgroundColor" red="0.96835607290000003" green="0.97225600479999996" blue="0.99287992719999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aYg-Fs-LHw" secondAttribute="trailing" constant="10" id="5Pv-6R-5K0"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kAh-x2-1gJ" secondAttribute="trailing" constant="10" id="5Rd-Ke-BCC"/>
-                <constraint firstItem="kAh-x2-1gJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Bq6-dn-zpY"/>
-                <constraint firstItem="kAh-x2-1gJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="DZO-Hd-5Mn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aYg-Fs-LHw" secondAttribute="bottom" id="gMa-cj-gQO"/>
-                <constraint firstItem="aYg-Fs-LHw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="ulX-MB-LjA"/>
-                <constraint firstItem="aYg-Fs-LHw" firstAttribute="top" secondItem="kAh-x2-1gJ" secondAttribute="bottom" constant="10" id="vxU-nZ-HId"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="w1K-zj-BgS" secondAttribute="bottom" id="531-az-7jn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sch-jT-M5N" secondAttribute="trailing" constant="20" id="7AQ-7n-g0q"/>
+                <constraint firstItem="sch-jT-M5N" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Cas-xQ-BNf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="w1K-zj-BgS" secondAttribute="trailing" id="H6r-2P-oYX"/>
+                <constraint firstItem="w1K-zj-BgS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OeM-qV-UWb"/>
+                <constraint firstItem="sch-jT-M5N" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="Zf2-Qa-Bpn"/>
+                <constraint firstItem="w1K-zj-BgS" firstAttribute="top" secondItem="sch-jT-M5N" secondAttribute="bottom" constant="10" id="jhc-4e-S13"/>
+                <constraint firstItem="sch-jT-M5N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="lM8-8a-8PW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="94"/>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
         </view>
     </objects>
 </document>
