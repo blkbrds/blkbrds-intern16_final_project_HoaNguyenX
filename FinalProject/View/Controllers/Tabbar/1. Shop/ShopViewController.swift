@@ -70,6 +70,7 @@ extension ShopViewController: UICollectionViewDataSource {
         guard let cell = productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCell else {
             return UICollectionViewCell()
         }
+        cell.viewModel = viewModel.getProductCell(atIndexPath: indexPath)
         return cell
     }
 }

@@ -20,7 +20,7 @@ final class ShopViewModel: ViewModel {
     
     func getProductCell(atIndexPath indexPath: IndexPath) -> ProductCellViewModel? {
         guard 0 <= indexPath.row && indexPath.row < products.count else { return nil }
-        return ProductCellViewModel()
+        return ProductCellViewModel(product: products[indexPath.row])
     }
     
     func getListItems() {

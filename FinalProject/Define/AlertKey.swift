@@ -10,6 +10,7 @@ import Foundation
 
 struct AlertKey {
     static let notification: String = "Thông báo"
-    static let failure: String = "Đăng nhập thất bại"
+    static let loginFailure: String = "Đăng nhập thất bại"
     static let okAction: String = "OK"
+    static let connectFailure: String = "Kết nối tới sever thất bại"
 }

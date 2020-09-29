@@ -40,13 +40,27 @@ final class LoginViewController: ViewController {
     }
     
     private func login() {
-        viewModel.login()
-        print(viewModel.loginFacebookResult)
-        if viewModel.loginFacebookResult == .success {
-            let alert: UIAlertController = UIAlertController(title: AlertKey.notification, message: AlertKey.failure, preferredStyle: .alert)
-            let aletAction: UIAlertAction = UIAlertAction(title: AlertKey.okAction, style: .destructive, handler: nil)
-            alert.addAction(aletAction)
-            self.present(alert, animated: true, completion: nil)
+        viewModel.login { [weak self] result in
+            guard let this = self else { return }
+            switch result {
+            case .failure:
+                let alert: UIAlertController = UIAlertController(title: AlertKey.notification, message: AlertKey.loginFailure, preferredStyle: .alert)
+                let aletAction: UIAlertAction = UIAlertAction(title: AlertKey.okAction, style: .destructive, handler: nil)
+                alert.addAction(aletAction)
+                this.present(alert, animated: true, completion: nil)
+            case .success:
+                this.viewModel.connectFacebookToFirebase(accessToken: Session.shared.accessToken, completion: { response in
+                    switch response {
+                    case .failure:
+                        let alert: UIAlertController = UIAlertController(title: AlertKey.notification, message: AlertKey.connectFailure, preferredStyle: .alert)
+                        let aletAction: UIAlertAction = UIAlertAction(title: AlertKey.okAction, style: .destructive, handler: nil)
+                        alert.addAction(aletAction)
+                        this.present(alert, animated: true, completion: nil)
+                    case .success:
+                        AppDelegate.shared.changeRoot(rootType: .tabbar)
+                    }
+                })
+            }
         }
     }
     
