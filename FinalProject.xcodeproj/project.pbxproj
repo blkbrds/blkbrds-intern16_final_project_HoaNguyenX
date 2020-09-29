@@ -31,18 +31,24 @@
 		6ED44CE2250A8357006DA53B /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED44CD4250A8357006DA53B /* UILabelExt.swift */; };
 		6ED44CEA250A8476006DA53B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED44CE8250A8476006DA53B /* LaunchScreen.storyboard */; };
 		F394C983A276A0328ED4448A /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3EFD8E62132522E716F26A /* Pods_FinalProject.framework */; };
+		F398AAD62520908E006E223F /* Api.InforUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAD52520908E006E223F /* Api.InforUser.swift */; };
+		F398AAD825209395006E223F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAD725209395006E223F /* User.swift */; };
+		F398AADA252099AE006E223F /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAD9252099AE006E223F /* Friends.swift */; };
+		F398AADC2520A00B006E223F /* ConversationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398AADB2520A00B006E223F /* ConversationsViewController.xib */; };
+		F398AADE2520EA0E006E223F /* FirebaseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AADD2520EA0E006E223F /* FirebaseKey.swift */; };
+		F398AAE225217E70006E223F /* ConversationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAE025217E70006E223F /* ConversationsCell.swift */; };
+		F398AAE325217E70006E223F /* ConversationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398AAE125217E70006E223F /* ConversationsCell.xib */; };
+		F398AAE525217F3A006E223F /* ConversationsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAE425217F3A006E223F /* ConversationsCellViewModel.swift */; };
+		F398AAEF2521A57D006E223F /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398AAEE2521A57D006E223F /* ChatViewController.xib */; };
+		F398AAF12521C110006E223F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAF02521C110006E223F /* Message.swift */; };
+		F398AAF42521C56B006E223F /* SenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAF22521C56B006E223F /* SenderCell.swift */; };
+		F398AAF52521C56B006E223F /* SenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398AAF32521C56B006E223F /* SenderCell.xib */; };
+		F398AAF725224F22006E223F /* SenderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAF625224F22006E223F /* SenderCellViewModel.swift */; };
 		F398D711251898C3009E7424 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D710251898C3009E7424 /* ViewController.swift */; };
 		F398D71F25189A5B009E7424 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D71D25189A5B009E7424 /* ProductCell.swift */; };
 		F398D72025189A5B009E7424 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D71E25189A5B009E7424 /* ProductCell.xib */; };
 		F398D72225189A78009E7424 /* ProductsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D72125189A78009E7424 /* ProductsCellViewModel.swift */; };
 		F398D72525189AD5009E7424 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D72325189AD5009E7424 /* ChatViewController.swift */; };
-		F398D72625189AD5009E7424 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D72425189AD5009E7424 /* ChatViewController.xib */; };
-		F398D72925189B19009E7424 /* ReceiverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D72725189B19009E7424 /* ReceiverViewController.swift */; };
-		F398D72A25189B19009E7424 /* ReceiverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D72825189B19009E7424 /* ReceiverViewController.xib */; };
-		F398D72C25189B3C009E7424 /* ReceiverCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D72B25189B3C009E7424 /* ReceiverCellViewModel.swift */; };
-		F398D72E25189B57009E7424 /* SenderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D72D25189B57009E7424 /* SenderCellViewModel.swift */; };
-		F398D73125189B70009E7424 /* SenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D72F25189B70009E7424 /* SenderViewController.swift */; };
-		F398D73225189B70009E7424 /* SenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D73025189B70009E7424 /* SenderViewController.xib */; };
 		F398D73525189BE4009E7424 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D73325189BE4009E7424 /* ShopViewController.swift */; };
 		F398D73625189BE4009E7424 /* ShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D73425189BE4009E7424 /* ShopViewController.xib */; };
 		F398D73825189C8E009E7424 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D73725189C8E009E7424 /* ShopViewModel.swift */; };
@@ -63,7 +69,6 @@
 		F398D75C2518A2CB009E7424 /* FacebookPhotosCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D75B2518A2CB009E7424 /* FacebookPhotosCellViewModel.swift */; };
 		F398D75E2518A3DE009E7424 /* FriendsProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D75D2518A3DE009E7424 /* FriendsProfileViewModel.swift */; };
 		F398D7612518A44F009E7424 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D75F2518A44F009E7424 /* ConversationsViewController.swift */; };
-		F398D7622518A44F009E7424 /* ConversationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D7602518A44F009E7424 /* ConversationsViewController.xib */; };
 		F398D7642518A471009E7424 /* ConversationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D7632518A471009E7424 /* ConversationsViewModel.swift */; };
 		F398D7682518A6AA009E7424 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D7662518A6AA009E7424 /* LoginViewController.swift */; };
 		F398D7692518A6AA009E7424 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398D7672518A6AA009E7424 /* LoginViewController.xib */; };
@@ -78,6 +83,7 @@
 		F398D785251B02F5009E7424 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D784251B02F5009E7424 /* LoginViewModel.swift */; };
 		F398D787251B36A9009E7424 /* TabbarItemsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D786251B36A9009E7424 /* TabbarItemsKey.swift */; };
 		F398D78B251C4086009E7424 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D78A251C4086009E7424 /* Product.swift */; };
+		F398D7A1251E5752009E7424 /* Api.Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398D7A0251E5752009E7424 /* Api.Products.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,18 +115,24 @@
 		6ED44CEB250A84F8006DA53B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A6E513A51564968E3C0375F2 /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BD3EFD8E62132522E716F26A /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F398AAD52520908E006E223F /* Api.InforUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.InforUser.swift; sourceTree = "<group>"; };
+		F398AAD725209395006E223F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F398AAD9252099AE006E223F /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		F398AADB2520A00B006E223F /* ConversationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsViewController.xib; sourceTree = "<group>"; };
+		F398AADD2520EA0E006E223F /* FirebaseKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseKey.swift; sourceTree = "<group>"; };
+		F398AAE025217E70006E223F /* ConversationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsCell.swift; sourceTree = "<group>"; };
+		F398AAE125217E70006E223F /* ConversationsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsCell.xib; sourceTree = "<group>"; };
+		F398AAE425217F3A006E223F /* ConversationsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsCellViewModel.swift; sourceTree = "<group>"; };
+		F398AAEE2521A57D006E223F /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		F398AAF02521C110006E223F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		F398AAF22521C56B006E223F /* SenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderCell.swift; sourceTree = "<group>"; };
+		F398AAF32521C56B006E223F /* SenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderCell.xib; sourceTree = "<group>"; };
+		F398AAF625224F22006E223F /* SenderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderCellViewModel.swift; sourceTree = "<group>"; };
 		F398D710251898C3009E7424 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F398D71D25189A5B009E7424 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		F398D71E25189A5B009E7424 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		F398D72125189A78009E7424 /* ProductsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCellViewModel.swift; sourceTree = "<group>"; };
 		F398D72325189AD5009E7424 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		F398D72425189AD5009E7424 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
-		F398D72725189B19009E7424 /* ReceiverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverViewController.swift; sourceTree = "<group>"; };
-		F398D72825189B19009E7424 /* ReceiverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiverViewController.xib; sourceTree = "<group>"; };
-		F398D72B25189B3C009E7424 /* ReceiverCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverCellViewModel.swift; sourceTree = "<group>"; };
-		F398D72D25189B57009E7424 /* SenderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderCellViewModel.swift; sourceTree = "<group>"; };
-		F398D72F25189B70009E7424 /* SenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderViewController.swift; sourceTree = "<group>"; };
-		F398D73025189B70009E7424 /* SenderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderViewController.xib; sourceTree = "<group>"; };
 		F398D73325189BE4009E7424 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		F398D73425189BE4009E7424 /* ShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopViewController.xib; sourceTree = "<group>"; };
 		F398D73725189C8E009E7424 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
@@ -141,7 +153,6 @@
 		F398D75B2518A2CB009E7424 /* FacebookPhotosCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPhotosCellViewModel.swift; sourceTree = "<group>"; };
 		F398D75D2518A3DE009E7424 /* FriendsProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileViewModel.swift; sourceTree = "<group>"; };
 		F398D75F2518A44F009E7424 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
-		F398D7602518A44F009E7424 /* ConversationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsViewController.xib; sourceTree = "<group>"; };
 		F398D7632518A471009E7424 /* ConversationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewModel.swift; sourceTree = "<group>"; };
 		F398D7662518A6AA009E7424 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F398D7672518A6AA009E7424 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -157,6 +168,7 @@
 		F398D784251B02F5009E7424 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F398D786251B36A9009E7424 /* TabbarItemsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItemsKey.swift; sourceTree = "<group>"; };
 		F398D78A251C4086009E7424 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		F398D7A0251E5752009E7424 /* Api.Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Products.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +271,8 @@
 				6ED44CBC250A8320006DA53B /* ApiManager.swift */,
 				6ED44CBD250A8320006DA53B /* ResponseSerializer.swift */,
 				6ED44CBE250A8320006DA53B /* Router.swift */,
+				F398D7A0251E5752009E7424 /* Api.Products.swift */,
+				F398AAD52520908E006E223F /* Api.InforUser.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -317,6 +331,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F398AADF25217E52006E223F /* ConversationsCell */ = {
+			isa = PBXGroup;
+			children = (
+				F398AAE025217E70006E223F /* ConversationsCell.swift */,
+				F398AAE125217E70006E223F /* ConversationsCell.xib */,
+				F398AAE425217F3A006E223F /* ConversationsCellViewModel.swift */,
+			);
+			path = ConversationsCell;
+			sourceTree = "<group>";
+		};
 		F398D712251898F4009E7424 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,8 +387,9 @@
 			isa = PBXGroup;
 			children = (
 				F398D75F2518A44F009E7424 /* ConversationsViewController.swift */,
-				F398D7602518A44F009E7424 /* ConversationsViewController.xib */,
 				F398D7632518A471009E7424 /* ConversationsViewModel.swift */,
+				F398AADB2520A00B006E223F /* ConversationsViewController.xib */,
+				F398AADF25217E52006E223F /* ConversationsCell */,
 			);
 			path = "3. Conversations";
 			sourceTree = "<group>";
@@ -392,9 +417,9 @@
 		F398D719251899A9009E7424 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				F398AAEE2521A57D006E223F /* ChatViewController.xib */,
 				F398D72325189AD5009E7424 /* ChatViewController.swift */,
 				F398D73925189E6D009E7424 /* ChatViewModel.swift */,
-				F398D72425189AD5009E7424 /* ChatViewController.xib */,
 				F398D71B25189A18009E7424 /* ReceiverCell */,
 				F398D71A251899C5009E7424 /* SenderCell */,
 			);
@@ -404,9 +429,9 @@
 		F398D71A251899C5009E7424 /* SenderCell */ = {
 			isa = PBXGroup;
 			children = (
-				F398D72D25189B57009E7424 /* SenderCellViewModel.swift */,
-				F398D72F25189B70009E7424 /* SenderViewController.swift */,
-				F398D73025189B70009E7424 /* SenderViewController.xib */,
+				F398AAF22521C56B006E223F /* SenderCell.swift */,
+				F398AAF32521C56B006E223F /* SenderCell.xib */,
+				F398AAF625224F22006E223F /* SenderCellViewModel.swift */,
 			);
 			path = SenderCell;
 			sourceTree = "<group>";
@@ -414,9 +439,6 @@
 		F398D71B25189A18009E7424 /* ReceiverCell */ = {
 			isa = PBXGroup;
 			children = (
-				F398D72725189B19009E7424 /* ReceiverViewController.swift */,
-				F398D72825189B19009E7424 /* ReceiverViewController.xib */,
-				F398D72B25189B3C009E7424 /* ReceiverCellViewModel.swift */,
 			);
 			path = ReceiverCell;
 			sourceTree = "<group>";
@@ -470,6 +492,7 @@
 				F398D77F2519FB19009E7424 /* FacebookKey.swift */,
 				F398D782251AFDC7009E7424 /* AlertKey.swift */,
 				F398D786251B36A9009E7424 /* TabbarItemsKey.swift */,
+				F398AADD2520EA0E006E223F /* FirebaseKey.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -489,6 +512,9 @@
 			isa = PBXGroup;
 			children = (
 				F398D78A251C4086009E7424 /* Product.swift */,
+				F398AAD725209395006E223F /* User.swift */,
+				F398AAD9252099AE006E223F /* Friends.swift */,
+				F398AAF02521C110006E223F /* Message.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -555,21 +581,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ED44CEA250A8476006DA53B /* LaunchScreen.storyboard in Resources */,
-				F398D72A25189B19009E7424 /* ReceiverViewController.xib in Resources */,
 				F398D7532518A1CD009E7424 /* CustomDetails.xib in Resources */,
 				F398D76E2518A6E5009E7424 /* ProfileViewController.xib in Resources */,
 				6ED44CA7250A8148006DA53B /* Assets.xcassets in Resources */,
-				F398D73225189B70009E7424 /* SenderViewController.xib in Resources */,
 				F398D73F25189EEF009E7424 /* FriendsViewController.xib in Resources */,
 				F398D74525189F6F009E7424 /* FriendsCollectionViewCell.xib in Resources */,
+				F398AAF52521C56B006E223F /* SenderCell.xib in Resources */,
+				F398AAEF2521A57D006E223F /* ChatViewController.xib in Resources */,
 				F398D74C2518A011009E7424 /* FriendsProfileViewController.xib in Resources */,
 				F398D73625189BE4009E7424 /* ShopViewController.xib in Resources */,
-				F398D72625189AD5009E7424 /* ChatViewController.xib in Resources */,
+				F398AAE325217E70006E223F /* ConversationsCell.xib in Resources */,
 				F398D72025189A5B009E7424 /* ProductCell.xib in Resources */,
 				F398D7792519E3F4009E7424 /* GoogleService-Info.plist in Resources */,
+				F398AADC2520A00B006E223F /* ConversationsViewController.xib in Resources */,
 				F398D75A2518A2AD009E7424 /* FacebookPhotosCollectionViewCell.xib in Resources */,
 				F398D7692518A6AA009E7424 /* LoginViewController.xib in Resources */,
-				F398D7622518A44F009E7424 /* ConversationsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,13 +671,15 @@
 				F398D71F25189A5B009E7424 /* ProductCell.swift in Sources */,
 				6ED44CDD250A8357006DA53B /* BundleExt.swift in Sources */,
 				F398D7562518A23A009E7424 /* CustomDetailsViewModel.swift in Sources */,
+				F398AADA252099AE006E223F /* Friends.swift in Sources */,
+				F398AADE2520EA0E006E223F /* FirebaseKey.swift in Sources */,
 				F398D73E25189EEF009E7424 /* FriendsViewController.swift in Sources */,
 				6ED44CBF250A8320006DA53B /* RequestSerializer.swift in Sources */,
 				6ED44CE0250A8357006DA53B /* CollectionExt.swift in Sources */,
+				F398AAD825209395006E223F /* User.swift in Sources */,
 				F398D785251B02F5009E7424 /* LoginViewModel.swift in Sources */,
 				F398D76D2518A6E5009E7424 /* ProfileViewController.swift in Sources */,
 				F398D711251898C3009E7424 /* ViewController.swift in Sources */,
-				F398D72C25189B3C009E7424 /* ReceiverCellViewModel.swift in Sources */,
 				6ED44CE2250A8357006DA53B /* UILabelExt.swift in Sources */,
 				6ED44CC2250A8320006DA53B /* ApiManager.swift in Sources */,
 				F398D74125189F08009E7424 /* FriendsViewModel.swift in Sources */,
@@ -672,11 +700,12 @@
 				6ED44CDE250A8357006DA53B /* UICollectionViewExt.swift in Sources */,
 				F398D7682518A6AA009E7424 /* LoginViewController.swift in Sources */,
 				F398D74725189F8D009E7424 /* FriendsCellViewModel.swift in Sources */,
-				F398D72925189B19009E7424 /* ReceiverViewController.swift in Sources */,
 				F398D7702518A733009E7424 /* ProfileViewModel.swift in Sources */,
+				F398D7A1251E5752009E7424 /* Api.Products.swift in Sources */,
+				F398AAE525217F3A006E223F /* ConversationsCellViewModel.swift in Sources */,
 				6ED44C9E250A8145006DA53B /* AppDelegate.swift in Sources */,
 				6ED44CD9250A8357006DA53B /* StringExt.swift in Sources */,
-				F398D72E25189B57009E7424 /* SenderCellViewModel.swift in Sources */,
+				F398AAE225217E70006E223F /* ConversationsCell.swift in Sources */,
 				F398D7612518A44F009E7424 /* ConversationsViewController.swift in Sources */,
 				F398D787251B36A9009E7424 /* TabbarItemsKey.swift in Sources */,
 				F398D75E2518A3DE009E7424 /* FriendsProfileViewModel.swift in Sources */,
@@ -685,12 +714,15 @@
 				F398D7512518A1BE009E7424 /* CustomDetails.swift in Sources */,
 				F398D7802519FB19009E7424 /* FacebookKey.swift in Sources */,
 				F398D7642518A471009E7424 /* ConversationsViewModel.swift in Sources */,
+				F398AAF12521C110006E223F /* Message.swift in Sources */,
+				F398AAF725224F22006E223F /* SenderCellViewModel.swift in Sources */,
 				6ED44CDC250A8357006DA53B /* UIViewExt.swift in Sources */,
 				F398D75C2518A2CB009E7424 /* FacebookPhotosCellViewModel.swift in Sources */,
 				F398D78B251C4086009E7424 /* Product.swift in Sources */,
-				F398D73125189B70009E7424 /* SenderViewController.swift in Sources */,
+				F398AAD62520908E006E223F /* Api.InforUser.swift in Sources */,
 				F398D72525189AD5009E7424 /* ChatViewController.swift in Sources */,
 				6ED44CD5250A8357006DA53B /* UIGestureRecognizerExt.swift in Sources */,
+				F398AAF42521C56B006E223F /* SenderCell.swift in Sources */,
 				6ED44CC1250A8320006DA53B /* Error.swift in Sources */,
 				F398D783251AFDC7009E7424 /* AlertKey.swift in Sources */,
 				F398D73A25189E6D009E7424 /* ChatViewModel.swift in Sources */,
@@ -834,7 +866,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4FGMSL24MR;
 				INFOPLIST_FILE = FinalProject/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -855,7 +887,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4FGMSL24MR;
 				INFOPLIST_FILE = FinalProject/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
