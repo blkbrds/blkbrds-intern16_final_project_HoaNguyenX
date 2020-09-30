@@ -37,6 +37,10 @@
 		F34A82FF252444620005CC2D /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F34A82FA252444610005CC2D /* SF-Pro-Text-Semibold.otf */; };
 		F34A8300252444620005CC2D /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F34A82FB252444610005CC2D /* SF-Pro-Text-Light.otf */; };
 		F34A8301252444620005CC2D /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F34A82FC252444620005CC2D /* SF-Pro-Text-Bold.otf */; };
+		F34A830B25248A630005CC2D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A830925248A630005CC2D /* ImageCell.swift */; };
+		F34A830C25248A630005CC2D /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F34A830A25248A630005CC2D /* ImageCell.xib */; };
+		F34A830E252492270005CC2D /* ImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A830D252492270005CC2D /* ImageCellViewModel.swift */; };
+		F34A83102524928F0005CC2D /* ImageMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A830F2524928F0005CC2D /* ImageMessage.swift */; };
 		F394C983A276A0328ED4448A /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3EFD8E62132522E716F26A /* Pods_FinalProject.framework */; };
 		F398AAD62520908E006E223F /* Api.InforUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAD52520908E006E223F /* Api.InforUser.swift */; };
 		F398AAD825209395006E223F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAD725209395006E223F /* User.swift */; };
@@ -129,6 +133,10 @@
 		F34A82FA252444610005CC2D /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		F34A82FB252444610005CC2D /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		F34A82FC252444620005CC2D /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
+		F34A830925248A630005CC2D /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		F34A830A25248A630005CC2D /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		F34A830D252492270005CC2D /* ImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellViewModel.swift; sourceTree = "<group>"; };
+		F34A830F2524928F0005CC2D /* ImageMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessage.swift; sourceTree = "<group>"; };
 		F398AAD52520908E006E223F /* Api.InforUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.InforUser.swift; sourceTree = "<group>"; };
 		F398AAD725209395006E223F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F398AAD9252099AE006E223F /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
@@ -358,6 +366,16 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		F34A830825248A480005CC2D /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				F34A830925248A630005CC2D /* ImageCell.swift */,
+				F34A830A25248A630005CC2D /* ImageCell.xib */,
+				F34A830D252492270005CC2D /* ImageCellViewModel.swift */,
+			);
+			path = ImageCell;
+			sourceTree = "<group>";
+		};
 		F398AADF25217E52006E223F /* ConversationsCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +462,7 @@
 		F398D719251899A9009E7424 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				F34A830825248A480005CC2D /* ImageCell */,
 				F398AAEE2521A57D006E223F /* ChatViewController.xib */,
 				F398D72325189AD5009E7424 /* ChatViewController.swift */,
 				F398D73925189E6D009E7424 /* ChatViewModel.swift */,
@@ -544,6 +563,7 @@
 				F398AAD725209395006E223F /* User.swift */,
 				F398AAD9252099AE006E223F /* Friends.swift */,
 				F398AAF02521C110006E223F /* Message.swift */,
+				F34A830F2524928F0005CC2D /* ImageMessage.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -612,6 +632,7 @@
 				6ED44CEA250A8476006DA53B /* LaunchScreen.storyboard in Resources */,
 				F398D7532518A1CD009E7424 /* CustomDetails.xib in Resources */,
 				F398D76E2518A6E5009E7424 /* ProfileViewController.xib in Resources */,
+				F34A830C25248A630005CC2D /* ImageCell.xib in Resources */,
 				6ED44CA7250A8148006DA53B /* Assets.xcassets in Resources */,
 				F398D73F25189EEF009E7424 /* FriendsViewController.xib in Resources */,
 				F34A8300252444620005CC2D /* SF-Pro-Text-Light.otf in Resources */,
@@ -722,6 +743,7 @@
 				6ED44CDA250A8357006DA53B /* DictionaryExt.swift in Sources */,
 				6ED44CDB250A8357006DA53B /* NSDataExt.swift in Sources */,
 				F398D7742518AE35009E7424 /* TabbarViewController.swift in Sources */,
+				F34A83102524928F0005CC2D /* ImageMessage.swift in Sources */,
 				6ED44CE1250A8357006DA53B /* UIScrollViewExt.swift in Sources */,
 				6ED44CD8250A8357006DA53B /* UIColorExt.swift in Sources */,
 				6ED44CC4250A8320006DA53B /* Router.swift in Sources */,
@@ -747,6 +769,7 @@
 				F398D75E2518A3DE009E7424 /* FriendsProfileViewModel.swift in Sources */,
 				F398D7592518A2AD009E7424 /* FacebookPhotosCollectionViewCell.swift in Sources */,
 				F398D74425189F6F009E7424 /* FriendsCollectionViewCell.swift in Sources */,
+				F34A830B25248A630005CC2D /* ImageCell.swift in Sources */,
 				F398D7512518A1BE009E7424 /* CustomDetails.swift in Sources */,
 				F398D7802519FB19009E7424 /* FacebookKey.swift in Sources */,
 				F398D7642518A471009E7424 /* ConversationsViewModel.swift in Sources */,
@@ -759,6 +782,7 @@
 				F398D72525189AD5009E7424 /* ChatViewController.swift in Sources */,
 				6ED44CD5250A8357006DA53B /* UIGestureRecognizerExt.swift in Sources */,
 				F398AAF42521C56B006E223F /* SenderCell.swift in Sources */,
+				F34A830E252492270005CC2D /* ImageCellViewModel.swift in Sources */,
 				6ED44CC1250A8320006DA53B /* Error.swift in Sources */,
 				F398D783251AFDC7009E7424 /* AlertKey.swift in Sources */,
 				F398D73A25189E6D009E7424 /* ChatViewModel.swift in Sources */,

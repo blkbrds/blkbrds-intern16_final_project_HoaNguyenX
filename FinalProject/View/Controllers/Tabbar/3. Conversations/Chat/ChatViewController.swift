@@ -83,13 +83,17 @@ final class ChatViewController: ViewController {
         }
     }
     
+    private func updateImageToFirabase(image: UIImage) {
+        viewModel.uploadImageToFirebase(image: image)
+    }
+    
     // MARK: @Objc functions
     @objc private func backButtonTouchUpInside() {
         navigationController?.popViewController()
     }
     
     // MARK: - @IBAction
-    @IBAction func sendButtonTouchUpInside(_ sender: UIButton) {
+    @IBAction private func sendButtonTouchUpInside(_ sender: UIButton) {
         if textInput.text == "" {
             return
         }
@@ -98,6 +102,13 @@ final class ChatViewController: ViewController {
         }
         viewModel.postMessageToFirebase(body: text)
         textInput.text = ""
+    }
+    
+    @IBAction private func attachButtonTouchUpInside() {
+        let imagePicker: UIImagePickerController = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
     }
 }
 
@@ -145,5 +156,22 @@ extension ChatViewController: UITextFieldDelegate {
         }
         textField.text = text + "\n"
         return true
+    }
+}
+
+extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImage: UIImage = UIImage()
+        if let editedImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            selectedImage = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
+            selectedImage = originalImage
+        }
+        updateImageToFirabase(image: selectedImage)
+        dismiss(animated: true, completion: nil)
     }
 }

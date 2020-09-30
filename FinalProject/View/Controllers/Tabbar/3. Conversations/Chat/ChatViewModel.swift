@@ -10,6 +10,7 @@ import Foundation
 import MVVM
 import FirebaseFirestore
 import Firebase
+import FirebaseStorage
 
 final class ChatViewModel: ViewModel {
     
@@ -27,12 +28,12 @@ final class ChatViewModel: ViewModel {
         guard 0 <= indexPath.row && indexPath.row < messages.count else {
             return nil
         }
+        
         return MessageCellViewModel(body: messages[indexPath.row].body, isOwner: messages[indexPath.row].isOwner)
     }
     
     func loadMessages(completion: @escaping APICompletion) {
         guard let _ = Auth.auth().currentUser?.email else { return }
-        
         self.db.collection(idSender).document(idReceiver).collection("sms").order(by: "date").addSnapshotListener { (querySnapshot, error) in
             self.messages = []
             if let error = error {
@@ -58,32 +59,6 @@ final class ChatViewModel: ViewModel {
                 }
             }
         }
-        //        self.db.collection(receiver).document(sender).collection("sms").order(by: "date").addSnapshotListener { (querySnapshot, error) in
-        //            self.messages = []
-        //            if let error = error {
-        //                completion(.failure(error))
-        //            } else {
-        //                if let snapshotDocuments = querySnapshot?.documents {
-        //                    for doc in snapshotDocuments {
-        //                        print(doc)
-        //                        let data = doc.data()
-        //                        if let messageBody = data["body"] as? String,
-        //                            let sender = data["sender"] as? String {
-        //                            if sender == receiver {
-        //                                let newMessage = Message(isOwner: false, body: messageBody)
-        //                                self.messages.append(newMessage)
-        //                            } else {
-        //                                let newMessage = Message(isOwner: true, body: messageBody)
-        //                                self.messages.append(newMessage)
-        //                            }
-        //                            DispatchQueue.main.async {
-        //                                completion(.success)
-        //                            }
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
     }
     
     func postMessageToFirebase(body: String) {
@@ -100,5 +75,26 @@ final class ChatViewModel: ViewModel {
             
         }
     }
+    
+    func uploadImageToFirebase(image: UIImage) {
+        let random: Int = Int.random(in: 0...99999)
+        let ref = Storage.storage().reference().child(idSender).child(idReceiver).child("\(random)")
+         if let uploadData = image.jpegData(compressionQuality: 0.2) {
+            ref.putData(uploadData, metadata: nil, completion: { (_, error) in
+                    if error != nil {
+                        return
+                       }
+                       ref.downloadURL(completion: { (url, err) in
+                           if let _ = err {
+                               return
+                           }
+                           self.sendMessageWithImageUrl(url?.absoluteString ?? "")
+                       })
+                       
+                   })
+               }
+    }
+    
+    func sendMessageWithImageUrl(_ imageUrl: String) {}
 }
 
