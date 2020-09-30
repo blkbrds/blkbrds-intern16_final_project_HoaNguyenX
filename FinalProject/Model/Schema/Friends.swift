@@ -13,6 +13,7 @@ final class Friends: Mappable {
     
     var name: String = ""
     var image: String = ""
+    var id: String = ""
     
     init?(map: Map) {
     }
@@ -20,6 +21,7 @@ final class Friends: Mappable {
     func mapping(map: Map) {
         name <- map["name"]
         image <- map["picture.data.url"]
+        id <- map["id"]
     }
     
 }

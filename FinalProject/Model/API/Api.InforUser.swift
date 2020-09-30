@@ -22,10 +22,11 @@ extension Api.InforUser {
                 case .success(let data):
                     guard let json = data as? JSObject,
                         let email = json["email"] as? String,
-                        let name = json["name"] as? String else {
+                        let name = json["name"] as? String,
+                        let id = json["id"] as? String else {
                         return
                     }
-                    let user: User = User(email: email, name: name)
+                    let user: User = User(email: email, name: name, id: id)
                     completion(.success(user))
                 case .failure(let error):
                     completion(.failure(error))

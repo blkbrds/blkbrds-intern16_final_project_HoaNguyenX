@@ -16,4 +16,5 @@ pod 'Firebase/Auth'
 pod 'Firebase/Analytics'
 pod 'Firebase/Database'
 pod 'Firebase/Firestore'
+pod 'IQKeyboardManager'
 end

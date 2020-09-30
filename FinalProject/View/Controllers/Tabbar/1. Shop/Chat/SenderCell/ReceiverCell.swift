@@ -1,25 +1,25 @@
 //
-//  SenderCell.swift
+//  ReceiverCell.swift
 //  FinalProject
 //
-//  Created by NXH on 9/28/20.
+//  Created by NXH on 9/29/20.
 //  Copyright © 2020 MBA0176. All rights reserved.
 //
 
 import UIKit
 
-final class SenderCell: UITableViewCell {
+final class ReceiverCell: UITableViewCell {
     
     // MARK: - @IBOutlet
-    @IBOutlet  weak var sms: UILabel!
-    @IBOutlet private weak var viewContainerTextLabel: UIView!
+    @IBOutlet private weak var smsLabel: UILabel!
+    @IBOutlet private weak var containerView: UIView!
     
     var viewModel: MessageCellViewModel? {
         didSet {
             updateView()
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         configUI()
@@ -27,10 +27,10 @@ final class SenderCell: UITableViewCell {
     
     // MARK: - Private Functions
     private func configUI() {
-        viewContainerTextLabel.cornerRadius = 10
+        containerView.cornerRadius = 10
     }
     
     private func updateView() {
-        sms.text = viewModel?.body
+        smsLabel.text = viewModel?.body
     }
 }

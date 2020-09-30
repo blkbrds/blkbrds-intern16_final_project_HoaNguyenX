@@ -9,6 +9,6 @@
 import Foundation
 
 struct Message {
-    let sender: String
+    let isOwner: Bool
     let body: String
 }

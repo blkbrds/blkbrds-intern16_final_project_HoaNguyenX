@@ -12,7 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        configUI()
+    }
+    
+    private func configUI() {
+        view.backgroundColor = UIColor(hexString: "F7F3FD")
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }
 

@@ -21,7 +21,6 @@ final class TabbarViewController: UITabBarController {
         super.viewDidLoad()
         configTabbar()
         customTabbar()
-        configNavi()
     }
     
     override func viewDidLayoutSubviews() {
@@ -34,7 +33,7 @@ final class TabbarViewController: UITabBarController {
     private func configTabbar() {
         let tabbarItems: [UIViewController] = [shopNavi, friendsNavi, conversationsNavi, profileNavi]
         shopNavi.tabBarItem = UITabBarItem(title: TabbarItemsKey.Name.shop, image: UIImage(named: TabbarItemsKey.Image.shop), tag: 1)
-        friendsNavi.tabBarItem = UITabBarItem(title: TabbarItemsKey.Name.shop, image: UIImage(named: TabbarItemsKey.Image.friends), tag: 2)
+        friendsNavi.tabBarItem = UITabBarItem(title: TabbarItemsKey.Name.friends, image: UIImage(named: TabbarItemsKey.Image.friends), tag: 2)
         conversationsNavi.tabBarItem = UITabBarItem(title: TabbarItemsKey.Name.conversations, image: UIImage(named: TabbarItemsKey.Image.conversations), tag: 3)
         profileNavi.tabBarItem = UITabBarItem(title: TabbarItemsKey.Name.profile, image: UIImage(named: TabbarItemsKey.Image.profile), tag: 4)
         viewControllers = tabbarItems
@@ -44,11 +43,6 @@ final class TabbarViewController: UITabBarController {
         tabBar.barTintColor = UIColor.white
         tabBar.tintColor = UIColor(hexString: "E74C3C")
         tabBar.unselectedItemTintColor = UIColor(hexString: "CCCCCC")
-    }
-    
-    private func configNavi() {
-        navigationController?.isNavigationBarHidden = true
-        tabBarController?.navigationController?.isNavigationBarHidden = true
     }
 }
 

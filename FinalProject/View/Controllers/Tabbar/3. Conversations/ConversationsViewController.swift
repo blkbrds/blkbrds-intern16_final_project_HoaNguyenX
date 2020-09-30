@@ -68,7 +68,7 @@ final class ConversationsViewController: ViewController {
             let ref = Database.database().reference()
             let usersReference = ref.child("users").child(uid)
             let values = ["name": user.name, "email": user.email]
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            usersReference.updateChildValues(values, withCompletionBlock: { (err, _) in
                 if let _ = err {
                     return
                 }
@@ -110,7 +110,13 @@ extension ConversationsViewController: UITableViewDelegate {
         return 100
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(ChatViewController())
+        let chatViewController = ChatViewController()
+        guard let idReceiver = viewModel.getFriendForIndexPath(atIndexPath: indexPath)?.id, let idSender = viewModel.getUser()?.id,
+            let name = viewModel.getFriendForIndexPath(atIndexPath: indexPath)?.name else { return }
+        chatViewController.viewModel.nameSender = name
+        chatViewController.viewModel.idReceiver = idReceiver
+        chatViewController.viewModel.idSender = idSender
+        navigationController?.pushViewController(chatViewController)
     }
     
 }

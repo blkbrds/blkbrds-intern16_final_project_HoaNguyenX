@@ -13,55 +13,92 @@ import Firebase
 
 final class ChatViewModel: ViewModel {
     
-     var messages: [Message] = []
-    let db = Firestore.firestore()
+    private var messages: [Message] = []
+    private let db = Firestore.firestore()
+    var nameSender: String = ""
+    var idSender: String = ""
+    var idReceiver: String = ""
     
     func numberOfItems(inSection section: Int) -> Int {
         return messages.count
     }
     
-    func getMessageForIndexPaht(atIndexPath indexPath: IndexPath) -> SenderCellViewModel? {
+    func getMessageForIndexPaht(atIndexPath indexPath: IndexPath) -> MessageCellViewModel? {
         guard 0 <= indexPath.row && indexPath.row < messages.count else {
             return nil
         }
-        return SenderCellViewModel(body: messages[indexPath.row].body)
+        return MessageCellViewModel(body: messages[indexPath.row].body, isOwner: messages[indexPath.row].isOwner)
     }
     
-    func loadMessagesOnTableView(tableView: UITableView) {
-        db.collection("messages").order(by: "date").addSnapshotListener { (querySnapshot, error) in
+    func loadMessages(completion: @escaping APICompletion) {
+        guard let _ = Auth.auth().currentUser?.email else { return }
+        
+        self.db.collection(idSender).document(idReceiver).collection("sms").order(by: "date").addSnapshotListener { (querySnapshot, error) in
             self.messages = []
-            if let _ = error {
-                return
+            if let error = error {
+                completion(.failure(error))
             } else {
                 if let snapshotDocuments = querySnapshot?.documents {
                     for doc in snapshotDocuments {
                         let data = doc.data()
-                        if let messageSender = data["sender"] as? String, let messageBody = data["body"] as? String {
-                            let newMessage = Message(sender: messageSender, body: messageBody)
-                            self.messages.append(newMessage)
+                        if let messageBody = data["body"] as? String,
+                            let sender = data["sender"] as? String {
+                            if sender == self.idReceiver {
+                                let newMessage = Message(isOwner: false, body: messageBody)
+                                self.messages.append(newMessage)
+                            } else {
+                                let newMessage = Message(isOwner: true, body: messageBody)
+                                self.messages.append(newMessage)
+                            }
+                            DispatchQueue.main.async {
+                                completion(.success)
+                            }
                         }
                     }
                 }
             }
-            DispatchQueue.main.async {
-                tableView.reloadData()
-                let indexPath = IndexPath(row: self.numberOfItems(inSection: 0) - 1, section: 0)
-                tableView.scrollToRow(at: indexPath, at: .top, animated: false)
-            }
         }
+        //        self.db.collection(receiver).document(sender).collection("sms").order(by: "date").addSnapshotListener { (querySnapshot, error) in
+        //            self.messages = []
+        //            if let error = error {
+        //                completion(.failure(error))
+        //            } else {
+        //                if let snapshotDocuments = querySnapshot?.documents {
+        //                    for doc in snapshotDocuments {
+        //                        print(doc)
+        //                        let data = doc.data()
+        //                        if let messageBody = data["body"] as? String,
+        //                            let sender = data["sender"] as? String {
+        //                            if sender == receiver {
+        //                                let newMessage = Message(isOwner: false, body: messageBody)
+        //                                self.messages.append(newMessage)
+        //                            } else {
+        //                                let newMessage = Message(isOwner: true, body: messageBody)
+        //                                self.messages.append(newMessage)
+        //                            }
+        //                            DispatchQueue.main.async {
+        //                                completion(.success)
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
     }
     
     func postMessageToFirebase(body: String) {
-         if let sender = Auth.auth().currentUser?.email {
-            db.collection("messages").addDocument(data: [
-                "sender": sender,
+        if let _ = Auth.auth().currentUser?.email {
+            
+            self.db.collection(idReceiver).document(idSender).collection("sms").addDocument(data: [
+                "sender": idSender,
                 "body": body,
-                "date": Date().timeIntervalSince1970
-            ]) { error in
-                if let _ = error {
-                    return
-                }
-            }
+                "date": Date().timeIntervalSince1970])
+            self.db.collection(idSender).document(idReceiver).collection("sms").addDocument(data: [
+                "sender": idSender,
+                "body": body,
+                "date": Date().timeIntervalSince1970])
+            
         }
     }
 }
+

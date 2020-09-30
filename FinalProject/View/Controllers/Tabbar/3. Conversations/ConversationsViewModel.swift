@@ -56,6 +56,6 @@ final class ConversationsViewModel: ViewModel {
         guard 0 <= indexPath.row && indexPath.row < friends.count else {
             return nil
         }
-        return ConversationsCellViewModel(name: friends[indexPath.row].name, image: friends[indexPath.row].image)
+        return ConversationsCellViewModel(name: friends[indexPath.row].name, image: friends[indexPath.row].image, id: friends[indexPath.row].id)
     }
 }
