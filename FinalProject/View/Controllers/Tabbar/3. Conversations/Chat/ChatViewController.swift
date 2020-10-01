@@ -61,6 +61,9 @@ final class ChatViewController: ViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "SenderCell", bundle: nil), forCellReuseIdentifier: "SenderCell")
         tableView.register(UINib(nibName: "ReceiverCell", bundle: nil), forCellReuseIdentifier: "ReceiverCell")
+        
+        let tapGestureTableView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOnTableView))
+        tableView.addGestureRecognizer(tapGestureTableView)
     }
     
     private func configTextField() {
@@ -69,16 +72,15 @@ final class ChatViewController: ViewController {
     }
     
     private func loadMessages() {
-        viewModel.loadMessages() { [weak self] result in
-            guard let this = self else { return }
+        viewModel.loadMessages { result in
             switch result {
             case .success:
-                this.tableView.reloadData {
-                    let indexPath = IndexPath(row: this.viewModel.numberOfItems(inSection: 0) - 1, section: 0)
-                    this.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                self.tableView.reloadData {
+                    let indexPath = IndexPath(row: self.viewModel.numberOfItems(inSection: 0) - 1, section: 0)
+                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
                 }
             case .failure(let error):
-                this.showAlert(title: AlertKey.notification, message: error.localizedDescription)
+                self.showAlert(title: AlertKey.notification, message: error.localizedDescription)
             }
         }
     }
@@ -90,6 +92,10 @@ final class ChatViewController: ViewController {
     // MARK: @Objc functions
     @objc private func backButtonTouchUpInside() {
         navigationController?.popViewController()
+    }
+    
+    @objc private func tapOnTableView() {
+        textInput.resignFirstResponder()
     }
     
     // MARK: - @IBAction
@@ -125,27 +131,20 @@ extension ChatViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.viewModel = viewModel.getMessageForIndexPaht(atIndexPath: indexPath)
-            
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SenderCell", for: indexPath) as? SenderCell else {
                 return UITableViewCell()
             }
             cell.viewModel = viewModel.getMessageForIndexPaht(atIndexPath: indexPath)
-            
             return cell
         }
-        
     }
 }
 
 extension ChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        textInput.resignFirstResponder()
     }
 }
 
