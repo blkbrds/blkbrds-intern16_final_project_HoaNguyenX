@@ -41,6 +41,7 @@
 		F34A830C25248A630005CC2D /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F34A830A25248A630005CC2D /* ImageCell.xib */; };
 		F34A830E252492270005CC2D /* ImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A830D252492270005CC2D /* ImageCellViewModel.swift */; };
 		F34A83102524928F0005CC2D /* ImageMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A830F2524928F0005CC2D /* ImageMessage.swift */; };
+		F34A8314252597D90005CC2D /* MessageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A8313252597D90005CC2D /* MessageKey.swift */; };
 		F394C983A276A0328ED4448A /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3EFD8E62132522E716F26A /* Pods_FinalProject.framework */; };
 		F398AAD62520908E006E223F /* Api.InforUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAD52520908E006E223F /* Api.InforUser.swift */; };
 		F398AAD825209395006E223F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398AAD725209395006E223F /* User.swift */; };
@@ -137,6 +138,7 @@
 		F34A830A25248A630005CC2D /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		F34A830D252492270005CC2D /* ImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellViewModel.swift; sourceTree = "<group>"; };
 		F34A830F2524928F0005CC2D /* ImageMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessage.swift; sourceTree = "<group>"; };
+		F34A8313252597D90005CC2D /* MessageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageKey.swift; sourceTree = "<group>"; };
 		F398AAD52520908E006E223F /* Api.InforUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.InforUser.swift; sourceTree = "<group>"; };
 		F398AAD725209395006E223F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F398AAD9252099AE006E223F /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				F398D782251AFDC7009E7424 /* AlertKey.swift */,
 				F398D786251B36A9009E7424 /* TabbarItemsKey.swift */,
 				F398AADD2520EA0E006E223F /* FirebaseKey.swift */,
+				F34A8313252597D90005CC2D /* MessageKey.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				F398D7702518A733009E7424 /* ProfileViewModel.swift in Sources */,
 				F398D7A1251E5752009E7424 /* Api.Products.swift in Sources */,
 				F398AAE525217F3A006E223F /* ConversationsCellViewModel.swift in Sources */,
+				F34A8314252597D90005CC2D /* MessageKey.swift in Sources */,
 				6ED44C9E250A8145006DA53B /* AppDelegate.swift in Sources */,
 				6ED44CD9250A8357006DA53B /* StringExt.swift in Sources */,
 				F34A82F52523423A0005CC2D /* ReceiverCell.swift in Sources */,

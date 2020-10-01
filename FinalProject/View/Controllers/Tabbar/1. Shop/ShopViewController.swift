@@ -19,7 +19,8 @@ final class ShopViewController: ViewController {
     // MARK: - Properties
     private var viewModelClothes: ShopViewModel = ShopViewModel()
     private var viewModelShoes: ShopViewModel = ShopViewModel()
-    private var collectionRefreshControl: UIRefreshControl = UIRefreshControl()
+    private var collectionClothesRefreshControl: UIRefreshControl = UIRefreshControl()
+    private var collectionShoesRefreshControl: UIRefreshControl = UIRefreshControl()
     private var isReloadShoes: Bool = true
     
     // MARK: - Life cycle
@@ -27,8 +28,10 @@ final class ShopViewController: ViewController {
         super.viewDidLoad()
         configUISegment()
         configProductsCollectionView()
+        refreshClothes()
+        refreshShoes()
         loadApiClothes()
-        refresh()
+        getViewer()
     }
     
     // MARK: - Private Functions
@@ -53,39 +56,65 @@ final class ShopViewController: ViewController {
         shoesCollectionView.backgroundColor = .none
         shoesCollectionView.showsVerticalScrollIndicator = false
     }
-
+    
     private func loadApiClothes() {
-        viewModelClothes.getClothes { (done) in
-            if done {
+        viewModelClothes.getClothes { result in
+            switch result {
+            case .success:
+                self.viewModelClothes.products.shuffle()
                 DispatchQueue.main.async {
                     self.clothesCollectionView.reloadData()
                 }
+            default:
+                break
             }
         }
     }
     
     private func loadApiShoes() {
-        viewModelShoes.getShoes { (done) in
-            if done {
+        viewModelShoes.getShoes { result in
+            switch result {
+            case .success:
+                self.viewModelShoes.products.shuffle()
                 DispatchQueue.main.async {
                     self.shoesCollectionView.reloadData()
                 }
+            default:
+                break
             }
         }
     }
     
-    private func refresh() {
-      collectionRefreshControl.tintColor = .black
-      let tableViewAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-      collectionRefreshControl.attributedTitle = NSAttributedString(string: "Refesh", attributes: tableViewAttributes)
-      collectionRefreshControl.addTarget(self, action: #selector(refreshControl), for: .valueChanged)
-      clothesCollectionView.addSubview(collectionRefreshControl)
+    private func getViewer() {
+        viewModelClothes.getViewer { _ in
+        }
+    }
+    
+    private func refreshClothes() {
+        collectionClothesRefreshControl.tintColor = .red
+        let tableViewAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        collectionClothesRefreshControl.attributedTitle = NSAttributedString(string: "Refesh", attributes: tableViewAttributes)
+        collectionClothesRefreshControl.addTarget(self, action: #selector(refreshClothesControl), for: .valueChanged)
+        clothesCollectionView.addSubview(collectionClothesRefreshControl)
+    }
+    
+    private func refreshShoes() {
+        collectionShoesRefreshControl.tintColor = .red
+        let tableViewAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        collectionShoesRefreshControl.attributedTitle = NSAttributedString(string: "Refesh", attributes: tableViewAttributes)
+        collectionShoesRefreshControl.addTarget(self, action: #selector(refreshShoesControl), for: .valueChanged)
+        shoesCollectionView.addSubview(collectionShoesRefreshControl)
     }
     
     // MARK: - Objc Funcions
-    @objc private func refreshControl() {
+    @objc private func refreshClothesControl() {
         loadApiClothes()
-        collectionRefreshControl.endRefreshing()
+        collectionClothesRefreshControl.endRefreshing()
+    }
+    
+    @objc private func refreshShoesControl() {
+        loadApiShoes()
+        collectionShoesRefreshControl.endRefreshing()
     }
     
     // MARK: - @IBActions
@@ -108,7 +137,7 @@ final class ShopViewController: ViewController {
 // MARK: - extension
 extension ShopViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.clothesCollectionView {
+        if collectionView.tag == 1 {
             return viewModelClothes.numberOfItems(inSection: 0)
         }
         return viewModelShoes.numberOfItems(inSection: 0)
@@ -116,13 +145,13 @@ extension ShopViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView.tag {
-        case 0:
+        case 1:
             guard let clothesCell = clothesCollectionView.dequeueReusableCell(withReuseIdentifier: "ClothesCell", for: indexPath) as? ProductCell else {
                 return UICollectionViewCell()
             }
             clothesCell.viewModel = viewModelClothes.getProductCell(atIndexPath: indexPath)
             return clothesCell
-        case 1:
+        case 2:
             guard let shoesCell = shoesCollectionView.dequeueReusableCell(withReuseIdentifier: "ShoesCell", for: indexPath) as? ProductCell else {
                 return UICollectionViewCell()
             }
@@ -136,14 +165,21 @@ extension ShopViewController: UICollectionViewDataSource {
 
 extension ShopViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ChatViewController()
+        vc.viewModel.idReceiver = FirebaseKey.adminID
+        guard let viewer = viewModelClothes.viewer?.id else { return }
+        vc.viewModel.idSender = viewer
         switch collectionView.tag {
-        case 0:
-            break
         case 1:
-            break
+            guard let clothes = viewModelClothes.products[safe: indexPath.row]?.description else { return }
+            vc.viewModel.postMessageToFirebase(body: MessageKey.maskSendToViewer + clothes)
+        case 2:
+            guard let shoes = viewModelShoes.products[safe: indexPath.row]?.description else { return }
+            vc.viewModel.postMessageToFirebase(body: MessageKey.maskSendToViewer + shoes)
         default:
             break
         }
+        navigationController?.pushViewController(vc)
     }
 }
 
@@ -151,7 +187,7 @@ extension ShopViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let midSpace: CGFloat = 10
         let heightDescription: CGFloat = 30
-        let width: CGFloat = (collectionView.width / 2) - (midSpace / 2)
+        let width: CGFloat = (collectionView.width / 2) - (midSpace)
         let height: CGFloat = width + heightDescription
         return CGSize(width: width, height: height)
     }

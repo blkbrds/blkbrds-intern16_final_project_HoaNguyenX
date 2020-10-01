@@ -9,5 +9,6 @@
 import Foundation
 
 final class FirebaseKey {
+    static let adminID: String = "admin"
     static let defaulPassword: String = "123456"
 }
